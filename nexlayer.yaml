@@ -1,0 +1,23 @@
+application:
+  name: umami-analytics
+  pods:
+    - name: umami
+      image: ghcr.io/umami-software/umami:postgresql-latest
+      path: /
+      servicePorts:
+        - 3000
+      vars:
+        DATABASE_URL: postgresql://umami:umami@postgres.pod:5432/umami
+        APP_SECRET: "supersecretkey-changeme"
+    - name: postgres
+      image: postgres:16
+      servicePorts:
+        - 5432
+      vars:
+        POSTGRES_DB: umami
+        POSTGRES_USER: umami
+        POSTGRES_PASSWORD: umami
+      volumes:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql
+          size: 5Gi
