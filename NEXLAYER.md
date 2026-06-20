@@ -15,27 +15,27 @@
 
 ## Project Summary
 <!-- nexlayer:section agent-managed=project_summary -->
-Umami is a modern, privacy-focused, self-hosted alternative to Google Analytics that provides website analytics without tracking users.
+Umami is a privacy-focused, open-source alternative to Google Analytics that provides website analytics without tracking users. It uses a Next.js frontend and a PostgreSQL backend for data storage.
 <!-- nexlayer:end -->
 
 ## Technology Stack
 <!-- nexlayer:section agent-managed=tech_stack -->
 | Name | Kind | Version | Detected From |
 |------|------|---------|---------------|
-| Next.js | framework | latest | package.json, next.config.ts |
-| PostgreSQL | database | 15 | docker-compose.yml |
-| Prisma | tool | 7.3.0 | Dockerfile, prisma.config.ts |
 | Node.js | language | 22-alpine | Dockerfile |
-| pnpm | build | latest | pnpm-lock.yaml |
+| Next.js | framework | latest | package.json |
+| PostgreSQL | database | 15-alpine | docker-compose.yml |
+| Prisma | tool | 7.3.0 | Dockerfile |
+| pnpm | build | latest | package.json |
 <!-- nexlayer:end -->
 
 ## Repository Structure
 <!-- nexlayer:section agent-managed=structure_map -->
-- src/ — Main application source code
-- prisma/ — Database schema and migration files
-- scripts/ — Build and maintenance scripts
+- prisma/ — Database schema and migrations
+- src/ — Application source code
+- scripts/ — Utility scripts for DB checks and initialization
 - public/ — Static assets
-- generated/ — Prisma client and build artifacts
+- .next/ — Compiled Next.js build output
 <!-- nexlayer:end -->
 
 ## External Services Required
@@ -122,7 +122,6 @@ application:
           size: 10Gi
           mountPath: /var/lib/postgresql/data
 ```
-
 <!-- nexlayer:end -->
 
 ## Nexlayer Deployment Plan
@@ -149,7 +148,7 @@ application:
 
 ## Nexlayer Configuration
 <!-- nexlayer:section agent-managed=nexlayer_config -->
-**Last deployed:** 2026-06-20T17:34:44Z  
+**Last deployed:** 2026-06-20T17:51:35Z  
 **Live URL:** https://relaxed-weasel-umami.cloud.nexlayer.ai  
 **Runtime:**  · **Port:** auto-detected  
 **Deploy branch:** nexlayer  
@@ -188,6 +187,7 @@ application:
 <!-- nexlayer:section agent-managed=build_history -->
 | Date | Status | Notes |
 |------|--------|-------|
-| 2026-06-20T17:20:31Z | analyzed | initial repo analysis |
-| 2026-06-20T17:34:44Z | success | deployed https://relaxed-weasel-umami.cloud.nexlayer.ai |
+| 2026-06-20T17:49:15Z | analyzed | initial repo analysis |
+| 2026-06-20T17:51:35Z | success | deployed https://relaxed-weasel-umami.cloud.nexlayer.ai |
 <!-- nexlayer:end -->
+
