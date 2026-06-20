@@ -1,23 +1,26 @@
 application:
-  name: umami-analytics
+  name: umami
   pods:
-    - name: umami
-      image: ghcr.io/umami-software/umami:postgresql-latest
+    - name: app
+      image: "registry.nexlayer.io/user_01kece1xyh817dwff7wnarhkxd/umami:9ee60bf-fix8"
       path: /
       servicePorts:
         - 3000
       vars:
-        DATABASE_URL: postgresql://umami:umami@postgres.pod:5432/umami
-        APP_SECRET: "supersecretkey-changeme"
+        NODE_ENV: "production"
+        PORT: "3000"
+        HOSTNAME: "0.0.0.0"
+        DATABASE_URL: "postgresql://umami:umami@postgres.pod:5432/umami"
+        APP_SECRET: "replace-me-with-a-random-string"
     - name: postgres
-      image: postgres:16
+      image: mirror.gcr.io/library/postgres:16-alpine
       servicePorts:
         - 5432
       vars:
-        POSTGRES_DB: umami
         POSTGRES_USER: umami
         POSTGRES_PASSWORD: umami
+        POSTGRES_DB: umami
       volumes:
         - name: postgres-data
-          mountPath: /var/lib/postgresql
-          size: 5Gi
+          size: 10Gi
+          mountPath: /var/lib/postgresql/data
