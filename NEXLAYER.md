@@ -15,27 +15,27 @@
 
 ## Project Summary
 <!-- nexlayer:section agent-managed=project_summary -->
-Umami is a privacy-focused, open-source alternative to Google Analytics that provides website analytics without tracking users. It uses a Next.js frontend and a PostgreSQL backend for data storage.
+Umami is a privacy-focused, open-source alternative to Google Analytics that provides simple and fast web analytics without tracking users via cookies.
 <!-- nexlayer:end -->
 
 ## Technology Stack
 <!-- nexlayer:section agent-managed=tech_stack -->
 | Name | Kind | Version | Detected From |
 |------|------|---------|---------------|
+| Next.js | framework | latest | package.json, next.config.ts |
 | Node.js | language | 22-alpine | Dockerfile |
-| Next.js | framework | latest | package.json |
 | PostgreSQL | database | 15-alpine | docker-compose.yml |
-| Prisma | tool | 7.3.0 | Dockerfile |
-| pnpm | build | latest | package.json |
+| Prisma | tool | latest | package.json, prisma.config.ts |
+| pnpm | build | latest | pnpm-lock.yaml |
 <!-- nexlayer:end -->
 
 ## Repository Structure
 <!-- nexlayer:section agent-managed=structure_map -->
-- prisma/ — Database schema and migrations
-- src/ — Application source code
-- scripts/ — Utility scripts for DB checks and initialization
+- src/ — Application source code including components and logic
+- prisma/ — Database schema and migration files
+- scripts/ — Build and utility scripts for database and environment setup
 - public/ — Static assets
-- .next/ — Compiled Next.js build output
+- docker/ — Docker-specific configurations and proxy logic
 <!-- nexlayer:end -->
 
 ## External Services Required
@@ -148,7 +148,7 @@ application:
 
 ## Nexlayer Configuration
 <!-- nexlayer:section agent-managed=nexlayer_config -->
-**Last deployed:** 2026-06-20T17:51:35Z  
+**Last deployed:** 2026-06-21T00:32:30Z  
 **Live URL:** https://relaxed-weasel-umami.cloud.nexlayer.ai  
 **Runtime:**  · **Port:** auto-detected  
 **Deploy branch:** nexlayer  
@@ -187,7 +187,8 @@ application:
 <!-- nexlayer:section agent-managed=build_history -->
 | Date | Status | Notes |
 |------|--------|-------|
-| 2026-06-20T17:49:15Z | analyzed | initial repo analysis |
-| 2026-06-20T17:51:35Z | success | deployed https://relaxed-weasel-umami.cloud.nexlayer.ai |
+| 2026-06-21T00:29:53Z | analyzed | initial repo analysis |
+| 2026-06-21T00:32:30Z | success | deployed https://relaxed-weasel-umami.cloud.nexlayer.ai |
 <!-- nexlayer:end -->
+
 
